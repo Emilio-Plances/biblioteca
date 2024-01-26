@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca1eeaca-911e-4ae1-9d6f-9f724d9ff95f" name="Changes" comment="incompleto">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/biblioteca/entities/Elemento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/biblioteca/entities/Elemento.java" afterDir="false" />
+    <list default="true" id="ca1eeaca-911e-4ae1-9d6f-9f724d9ff95f" name="Changes" comment="Completo senza in">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/biblioteca/UsaBiblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/biblioteca/UsaBiblioteca.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +91,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706282816658</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Completo senza in">
+      <option name="closed" value="true" />
+      <created>1706283397826</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1706283397826</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -121,7 +129,8 @@
     <MESSAGE value="No exception" />
     <MESSAGE value="ricerca per nome" />
     <MESSAGE value="incompleto" />
-    <option name="LAST_COMMIT_MESSAGE" value="incompleto" />
+    <MESSAGE value="Completo senza in" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completo senza in" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
