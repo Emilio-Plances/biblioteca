@@ -51,7 +51,7 @@ public class UsaBiblioteca {
 
 
         //prestitoDao.prestitiScaduti().forEach(el-> System.out.println(el.toString()));
-        elementoDao.cercaLibriPrestatiAUtente(1);
+        elementoDao.cercaLibriPrestatiAUtente(1).forEach(el-> System.out.println(el.toString()));
 
         elementoDao.end();
         prestitoDao.end();
