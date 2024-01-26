@@ -10,6 +10,7 @@ import org.hibernate.annotations.GenericGenerator;
 @NamedQuery(name="cercaPerAnno", query = "SELECT e FROM Elemento e WHERE e.annoPubblicazione=:anno")
 @NamedQuery(name="cercaPerAutore",query = "SELECT e FROM Elemento e WHERE e.autore=:autore")
 @NamedQuery(name="cercaPerTitolo",query = "SELECT e FROM Elemento e WHERE LOWER(e.titolo) LIKE LOWER(concat('%',:titolo,'%'))")
+@NamedQuery(name="libriPrestati",query = "SELECT e FROM Elemento e WHERE e.codiceISBN IN(SELECT p.Elemento.codiceISBN FROM Prestito p WHERE p.utente.numeroTessera=:id and p.dataConsegna IS NULL)")
 public abstract class Elemento {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "sequenza_libreria")

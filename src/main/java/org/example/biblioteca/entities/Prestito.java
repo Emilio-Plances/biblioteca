@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 @Entity
 @Table(name="prestiti")
+@NamedQuery(name="scadutoNonRestituito",query = "SELECT p FROM Prestito p WHERE dataConsegna IS null AND CURRENT_DATE>dataFinePrestito")
 public class Prestito {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "sequenza_prestiti")

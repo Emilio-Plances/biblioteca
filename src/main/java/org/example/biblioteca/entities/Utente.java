@@ -19,6 +19,7 @@ public class Utente {
     private LocalDate dataNascita;
     @OneToMany(mappedBy = "utente",cascade = CascadeType.REMOVE)
     private Set<Prestito> prestiti;
+
     public Utente() {}
     public Utente(String nome, String cognome, LocalDate dataNascita) {
         this.nome = nome;

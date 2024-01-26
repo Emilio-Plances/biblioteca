@@ -38,6 +38,11 @@ public class ElementoDao {
         return q.getResultList();
     }
 
+    public List<Elemento> cercaLibriPrestatiAUtente(int id){
+        Query q = em.createNamedQuery("libriPrestati");
+        q.setParameter("id",id);
+        return q.getResultList();
+    }
     public void  rimuoviElemento(int id){
         EntityTransaction et=em.getTransaction();
         et.begin();

@@ -2,7 +2,8 @@ package org.example.biblioteca.dao;
 
 import jakarta.persistence.*;
 import org.example.biblioteca.entities.Prestito;
-import org.hibernate.exception.ConstraintViolationException;
+
+import java.util.List;
 
 public class PrestitoDao {
     private final EntityManagerFactory emf;
@@ -26,6 +27,10 @@ public class PrestitoDao {
         et.begin();
         em.remove(cercaPrestitoById(id));
         et.commit();
+    }
+    public List<Prestito> prestitiScaduti(){
+        Query q=em.createNamedQuery("scadutoNonRestituito");
+        return q.getResultList();
     }
     public void end(){
         em.close();

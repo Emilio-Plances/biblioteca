@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca1eeaca-911e-4ae1-9d6f-9f724d9ff95f" name="Changes" comment="No exception">
+    <list default="true" id="ca1eeaca-911e-4ae1-9d6f-9f724d9ff95f" name="Changes" comment="ricerca per nome">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/biblioteca/UsaBiblioteca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/biblioteca/UsaBiblioteca.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/biblioteca/dao/ElementoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/biblioteca/dao/ElementoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/biblioteca/dao/PrestitoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/biblioteca/dao/PrestitoDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/biblioteca/entities/Elemento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/biblioteca/entities/Elemento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/biblioteca/entities/Libro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/biblioteca/entities/Libro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/biblioteca/entities/Rivista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/biblioteca/entities/Rivista.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/biblioteca/entities/Prestito.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/biblioteca/entities/Prestito.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/biblioteca/entities/Utente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/biblioteca/entities/Utente.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,12 +81,21 @@
       <option name="project" value="LOCAL" />
       <updated>1706272796625</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="ricerca per nome">
+      <option name="closed" value="true" />
+      <created>1706277128131</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1706277128131</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="No exception" />
-    <option name="LAST_COMMIT_MESSAGE" value="No exception" />
+    <MESSAGE value="ricerca per nome" />
+    <option name="LAST_COMMIT_MESSAGE" value="ricerca per nome" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

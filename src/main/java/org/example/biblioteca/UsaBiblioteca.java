@@ -37,19 +37,21 @@ public class UsaBiblioteca {
 
         //Crea e aggiungi un Prestito
         try{
-            Prestito p1=creaPrestito(u1,el2);
+            Prestito p2=creaPrestito(u2,el2);
         }catch(Exception ex){
             System.out.println("Il libro è già in prestito");
         }
-        if(el1 instanceof Libro l){
-            System.out.println(l);
-        } else if (el1 instanceof Rivista r) {
-            System.out.println(r);
-        }
-        elementoDao.cercaElementiPerAnno(2000).forEach(el-> System.out.println(el.toString()));
-        elementoDao.cercaElementiPerAutore("J.K.Rowling").forEach(el-> System.out.println(el.toString()));
-        elementoDao.cercaElementiPerTitolo("s").forEach(el-> System.out.println(el.toString()));
 
+        //Legge gli elementi presi tramite id
+        stampaElemento(el2);
+
+//        elementoDao.cercaElementiPerAnno(2000).forEach(el-> System.out.println(el.toString()));
+//        elementoDao.cercaElementiPerAutore("J.K.Rowling").forEach(el-> System.out.println(el.toString()));
+//        elementoDao.cercaElementiPerTitolo("s").forEach(el-> System.out.println(el.toString()));
+
+
+        //prestitoDao.prestitiScaduti().forEach(el-> System.out.println(el.toString()));
+        elementoDao.cercaLibriPrestatiAUtente(1);
 
         elementoDao.end();
         prestitoDao.end();
@@ -74,5 +76,12 @@ public class UsaBiblioteca {
         Prestito p=new Prestito(utente,elemento,LocalDate.now());
         prestitoDao.aggiungiPrestito(p);
         return p;
+    }
+    public static void stampaElemento(Elemento el){
+        if(el instanceof Libro l){
+            System.out.println(l);
+        } else if (el instanceof Rivista r) {
+            System.out.println(r);
+        }
     }
 }
