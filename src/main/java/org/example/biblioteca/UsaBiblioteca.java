@@ -6,24 +6,18 @@ import org.example.biblioteca.dao.UtenteDao;
 import org.example.biblioteca.entities.*;
 import org.example.biblioteca.enums.Genere;
 import org.example.biblioteca.enums.Periodicita;
-import org.hibernate.exception.ConstraintViolationException;
-import org.postgresql.util.PSQLException;
 
 import java.time.LocalDate;
 
 public class UsaBiblioteca {
+    public static final ElementoDao elementoDao=new ElementoDao();
+    public static final PrestitoDao prestitoDao=new PrestitoDao();
+    public static final UtenteDao utenteDao=new UtenteDao();
     public static void main(String[] args) {
-        ElementoDao elementoDao=new ElementoDao();
-        PrestitoDao prestitoDao=new PrestitoDao();
-        UtenteDao utenteDao=new UtenteDao();
-
         //Crea e aggiungi un Utente
-//        Utente u1=new Utente("Emilio","Plances", LocalDate.of(1997,3,7));
-//        utenteDao.aggiungiUtente(u1);
-//        Utente u2=new Utente("Mauro","Cassoni", LocalDate.of(1994,1,10));
-//        utenteDao.aggiungiUtente(u2);
-//        Utente u3=new Utente("Emanuele","Barone", LocalDate.of(1996,5,22));
-//        utenteDao.aggiungiUtente(u2);
+//        Utente u1=creaUtente("Emilio","Plances", LocalDate.of(1997,3,7));
+//        Utente u2=creaUtente("Mauro","Cassoni", LocalDate.of(1994,1,10));
+//        Utente u3=creaUtente("Emanuele","Barone", LocalDate.of(1996,5,22));
 
         //Prende utenti esistenti nel database
         Utente u1=utenteDao.cercaUtenteById(1);
@@ -32,34 +26,53 @@ public class UsaBiblioteca {
 
 
         //Crea e aggiungi un Libro
-//        Libro l1=new Libro("Harry Potter",2000,400,"J.K.Rowling", Genere.FANTASIA);
-//        elementoDao.aggiungiElemento(l1);
+//        Libro l1=creaLibro("Harry Potter",2000,400,"J.K.Rowling", Genere.FANTASIA);
 
         //Crea e aggiungi una Rivista
-//        Rivista r1=new Rivista("Cioè",2024,20, Periodicita.SETTIMANALE);
-//        elementoDao.aggiungiElemento(r1);
+//        Rivista r1=creaRivista("Cioè",2024,20, Periodicita.SETTIMANALE);
 
         //Prende Elementi esistenti nel database
         Elemento el1=elementoDao.cercaElementoById(1);
         Elemento el2=elementoDao.cercaElementoById(2);
 
-
         //Crea e aggiungi un Prestito
-        Prestito p1=new Prestito(u1,el2,LocalDate.now());
         try{
-            prestitoDao.aggiungiPrestito(p1);
+            Prestito p1=creaPrestito(u1,el2);
         }catch(Exception ex){
             System.out.println("Il libro è già in prestito");
         }
-
-
-
-
-
+        if(el1 instanceof Libro l){
+            System.out.println(l);
+        } else if (el1 instanceof Rivista r) {
+            System.out.println(r);
+        }
+        elementoDao.cercaElementiPerAnno(2000).forEach(el-> System.out.println(el.toString()));
+        elementoDao.cercaElementiPerAutore("J.K.Rowling").forEach(el-> System.out.println(el.toString()));
+        elementoDao.cercaElementiPerTitolo("s").forEach(el-> System.out.println(el.toString()));
 
 
         elementoDao.end();
         prestitoDao.end();
         utenteDao.end();
+    }
+    public static Libro creaLibro(String titolo,int annoUscita,int numPagine,String autore,Genere genere){
+        Libro l=new Libro(titolo,annoUscita,numPagine,autore, genere);
+        elementoDao.aggiungiElemento(l);
+        return l;
+    }
+    public static Rivista creaRivista(String titolo, int annoUscita, int numPagine, Periodicita periodicita){
+        Rivista r=new Rivista(titolo,annoUscita,numPagine,periodicita);
+        elementoDao.aggiungiElemento(r);
+        return r;
+    }
+    public static Utente creaUtente(String nome,String cognome,LocalDate dataNascita){
+        Utente u=new Utente(nome,cognome, dataNascita);
+        utenteDao.aggiungiUtente(u);
+        return u;
+    }
+    public static Prestito creaPrestito(Utente utente,Elemento elemento)throws Exception{
+        Prestito p=new Prestito(utente,elemento,LocalDate.now());
+        prestitoDao.aggiungiPrestito(p);
+        return p;
     }
 }

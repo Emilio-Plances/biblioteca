@@ -27,6 +27,6 @@ public class Rivista extends Elemento {
     @Override
     public String toString() {
         return  super.toString()+
-                "periodicita=" + periodicita;
+                ", periodicita=" + periodicita;
     }
 }

@@ -7,13 +7,16 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table(name="libreria")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@NamedQuery(name="cercaPerAnno", query = "SELECT e FROM Elemento e WHERE e.annoPubblicazione=:anno")
+@NamedQuery(name="cercaPerAutore",query = "SELECT e FROM Elemento e WHERE e.autore=:autore")
+@NamedQuery(name="cercaPerTitolo",query = "SELECT e FROM Elemento e WHERE LOWER(e.titolo) LIKE LOWER(concat('%',:titolo,'%'))")
 public abstract class Elemento {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "sequenza_libreria")
     @SequenceGenerator(name="sequenza_libreria",initialValue = 1,allocationSize = 1)
     @Column(name = "codice_isbn")
     private int codiceISBN;
-    private String Titolo;
+    private String titolo;
     @Column(name = "anno_pubblicazione")
     private int annoPubblicazione;
     private int pagine;
@@ -22,7 +25,7 @@ public abstract class Elemento {
 
     public Elemento() {}
     public Elemento(String titolo, int annoPubblicazione, int pagine) {
-        Titolo = titolo;
+        this.titolo = titolo;
         this.annoPubblicazione = annoPubblicazione;
         this.pagine = pagine;
     }
@@ -32,11 +35,11 @@ public abstract class Elemento {
     }
 
     public String getTitolo() {
-        return Titolo;
+        return titolo;
     }
 
     public void setTitolo(String titolo) {
-        Titolo = titolo;
+        titolo = titolo;
     }
 
     public int getAnnoPubblicazione() {
@@ -57,7 +60,7 @@ public abstract class Elemento {
 
     public String toString() {
         return  "codiceISBN=" + codiceISBN +
-                ", Titolo=" + Titolo +
+                ", titolo=" + titolo +
                 ", annoPubblicazione=" + annoPubblicazione +
                 ", pagine=" + pagine;
     }
